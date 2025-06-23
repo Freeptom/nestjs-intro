@@ -8,14 +8,16 @@ import {
   Matches,
   IsJSON,
   IsUrl,
-  IsISO8601,
   ValidateNested,
+  MaxLength,
+  IsInt,
+  IsDate,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
 import { postType } from '../enums/postType.enum';
 import { postStatus } from '../enums/postStatus.enum';
-import { CreatePostMetaOptionsDto } from './create-post-meta-options.dto';
+import { CreatePostMetaOptionsDto } from '../../meta-options/dtos/create-post-meta-options.dto';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 /**
@@ -34,6 +36,7 @@ export class CreatePostDto {
   })
   @IsString()
   @MinLength(4)
+  @MaxLength(512)
   @IsNotEmpty()
   title: string;
 
@@ -57,6 +60,7 @@ export class CreatePostDto {
     example: 'my-blog-post',
   })
   @IsString()
+  @MaxLength(256)
   @IsNotEmpty()
   @Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
     message:
@@ -107,59 +111,49 @@ export class CreatePostDto {
     example: 'http://localhost.com/images/image1.jpg',
   })
   @IsUrl()
+  @MaxLength(1024)
   @IsOptional()
   featuredImageUrl?: string;
 
   /**
-   * ISO 8601 date string representing when the post was/will be published (optional).
+   * Date representing when the post was/will be published (optional).
    */
   @ApiPropertyOptional({
     description: 'The date on which the blog post is published',
     example: '"2024-03-16T07:46:32+0000"',
   })
-  @IsISO8601()
   @IsOptional()
+  @IsDate()
   publishedOn?: Date;
 
   /**
    * Array of tags associated with the post (optional).
    */
   @ApiPropertyOptional({
-    description: 'An array of tags passed as string values',
-    example: ['nestjs', 'typescript'],
+    description: 'An array of tag ids',
+    example: [1, 2],
   })
   @IsArray()
-  @IsString({ each: true })
-  @MinLength(3, { each: true })
+  @IsInt({ each: true })
   @IsOptional()
-  tags?: string[];
+  tags?: number[];
 
   /**
-   * Custom meta options (key-value pairs) for the post (optional).
+   * Custom meta options (json) for the post (optional).
    */
   @ApiPropertyOptional({
-    type: 'array',
-    required: false,
-    items: {
-      type: 'object',
-      properties: {
-        key: {
-          type: 'string',
-          description:
-            'The key can be any string identifier for your meta option',
-          example: 'sidebarEnabled',
-        },
-        value: {
-          type: 'any',
-          description: 'Any value you want to save to the key',
-          example: true,
-        },
+    type: 'object',
+    nullable: true,
+    properties: {
+      metaValue: {
+        type: 'string',
+        description: 'The meta value is a JSON string',
+        example: '{"sidebarEnabled" : true}',
       },
     },
   })
   @IsOptional()
-  @IsArray()
   @ValidateNested({ each: true })
   @Type(() => CreatePostMetaOptionsDto)
-  metaOptions?: CreatePostMetaOptionsDto[];
+  metaOptions?: CreatePostMetaOptionsDto;
 }

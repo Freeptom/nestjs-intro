@@ -6,14 +6,16 @@ import {
   Param,
   Query,
   Body,
-  ParseIntPipe,
-  DefaultValuePipe,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
+import { CreateManyUsersDto } from './dtos/create-many-users.dto';
 import { GetUsersParamDto } from './dtos/get-users-param.dto';
 import { PatchUserDto } from './dtos/patch-user.dto';
 import { UsersService } from './providers/users.service';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { GetUsersDto } from './dtos/get-users.dto';
+import { Auth } from 'src/auth/decorators/auth.decorator';
+import { AuthType } from 'src/auth/enums/auth-type.enum';
 /**
  * The users controller.
  * Handles user related routes and delegates logic to the UsersService.
@@ -56,12 +58,10 @@ export class UsersController {
   @Get('{/:id}/')
   public getUsers(
     @Param() getUsersParamDto: GetUsersParamDto,
-    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
-    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query() userQuery: GetUsersDto,
   ) {
-    return this.usersService.findAll(getUsersParamDto, limit, page);
+    return this.usersService.findAll(userQuery, getUsersParamDto);
   }
-
   /**
    *  Create a new user
    */
@@ -73,11 +73,24 @@ export class UsersController {
     description: 'You get a 201 response if the user is created successfully',
   })
   @Post()
+  @Auth(AuthType.None)
   public createUsers(@Body() createUserDto: CreateUserDto) {
-    console.log(createUserDto instanceof CreateUserDto);
-    return 'You sent a post request to create a user';
+    return this.usersService.createUser(createUserDto);
   }
-
+  /**
+   *  Create multiple users
+   */
+  @ApiOperation({
+    summary: 'Creates multiple users',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'You get a 200 response if the users are created successfully',
+  })
+  @Post('create-many')
+  public createManyUsers(@Body() createManyUsersDto: CreateManyUsersDto) {
+    return this.usersService.createMany(createManyUsersDto);
+  }
   /**
    *  Update an existing user
    */

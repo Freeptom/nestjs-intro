@@ -1,20 +1,20 @@
+{{
+    // pre request scripts
+    const date = new Date();
+    exports.publishedDate = date.toISOString()
+}}
+
 POST http://localhost:3000/posts
 Content-Type: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImJydWNleUB3YXluZS5jb20iLCJpYXQiOjE3NTAwOTkxNjQsImV4cCI6MTc1MDEwMjc2NCwiYXVkIjoibG9jYWxob3N0OjMwMDAiLCJpc3MiOiJsb2NhbGhvc3Q6MzAwMCJ9.WSDjYhP_IiojQLD58fDG4BfMxRGY7LSMJkbtRklFEpw
 {
     "title": "What's new with Nest js",
     "postType": "post",
-    "slug": "new-with-nestjs",
+    "slug": "test-create-post-providerrrr",
     "status": "draft",
     "content": "test content",
     "schema": "{\r\n \"@context\": \"https:\/\/schema.org\",\r\n \"@type\": \"Person\"\r\n }",
     "featuredImageUrl": "https://localhost.com/images/image1.jpg",
-    "publishedOn": "2024-03-16T07:46:32+0000",
-    "tags": ["nestjs", "typescript"],
-    "metaOptions": [
-        {
-            "key": "testKey",
-            "value": 20
-        }
-    ]
+    "publishedOn": "2024-05-31T08:30:34.152Z",
+    "tags": [1,5]
 }

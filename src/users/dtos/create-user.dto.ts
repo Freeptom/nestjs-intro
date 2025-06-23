@@ -48,6 +48,7 @@ export class CreateUserDto {
   })
   @IsNotEmpty()
   @IsEmail()
+  @MaxLength(96)
   email: string;
 
   /**
@@ -61,6 +62,7 @@ export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   @MinLength(8)
+  @MaxLength(96)
   @Matches(/^(?=.*d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/, {
     message:
       'Minimum eight characters, at least one capital letter, one number and one special character',

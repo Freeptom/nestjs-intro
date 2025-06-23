@@ -1,10 +1,29 @@
 POST http://localhost:3000/users
 Content-Type: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImJydWNleUB3YXluZS5jb20iLCJpYXQiOjE3NDk1ODMwMDMsImV4cCI6MTc0OTU4NjYwMywiYXVkIjoibG9jYWxob3N0OjMwMDAiLCJpc3MiOiJsb2NhbGhvc3Q6MzAwMCJ9.nppg2HuBktn2r_-MPhjWnXzqlk0Gwo1fNHTu5alfchA
 {
     "firstName": "John",
-    "lastName": "Doe",
-    "email": "john@doe.com",
-    "password": "Password1*"
-
+    "lastName": "Pronto",
+    "email": "john@pronto.com",
+    "password": "Password1*2"
 }
+
+# POST http://localhost:3000/users/create-many
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImJydWNleUB3YXluZS5jb20iLCJpYXQiOjE3NDg0MTM0ODksImV4cCI6MTc0ODQxNzA4OSwiYXVkIjoibG9jYWxob3N0OjMwMDAiLCJpc3MiOiJsb2NhbGhvc3Q6MzAwMCJ9.MDaZPEBYsskKkgWMaakql1Y1T8IJF6fWMNyKSJgoyls
+# {
+#     "users" : [
+#         {
+#             "firstName": "Mark",
+#             "lastName": "Corrigan",
+#             "password": "Password1*",
+#             "email": "mark@corrigan.com"
+#         },
+#         {
+#             "firstName": "Bruce",
+#             "lastName": "Wayne",
+#             "password": "Password12*",
+#             "email": "brucey@wayne.com"
+#         }
+#     ]
+# }

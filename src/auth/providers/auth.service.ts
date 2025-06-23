@@ -1,5 +1,8 @@
-import { Injectable, forwardRef, Inject } from '@nestjs/common';
-import { UsersService } from 'src/users/providers/users.service';
+import { Injectable } from '@nestjs/common';
+import { SignInDto } from '../dtos/signin.dto';
+import { SignInProvider } from './sign-in.provider';
+import { RefreshTokenDto } from '../dtos/refresh-token.dto';
+import { RefreshTokensProvider } from './refresh-tokens.provider';
 /**
  * Service responsible for handling authentication logic.
  * Delegates user-related operations to the UsersService.
@@ -10,21 +13,22 @@ export class AuthService {
    * Connects the UsersService to the AuthService via dependency injection.
    */
   constructor(
-    @Inject(forwardRef(() => UsersService))
-    private readonly usersService: UsersService,
+    /**
+     * Inject signInProvider
+     */
+    private readonly signInProvider: SignInProvider,
+    /**
+     * Inject refreshTokensProvider
+     */
+    private readonly refreshTokensProvider: RefreshTokensProvider,
   ) {}
   /**
    * Authenticates a user with the given credentials.
    */
-  public login(email: string, password: string, id: string) {
-    // Check if user exists
-    const users = this.usersService.findOneById('1234');
-    return 'SAMPLE_TOKEN';
+  public async signIn(signInDto: SignInDto) {
+    return await this.signInProvider.signIn(signInDto);
   }
-  /**
-   * Checks whether the user is authenticated.
-   */
-  public isAuth() {
-    return true;
+  public async refreshTokens(refreshTokenDto: RefreshTokenDto) {
+    return await this.refreshTokensProvider.refreshTokens(refreshTokenDto);
   }
 }

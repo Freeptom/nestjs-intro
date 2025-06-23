@@ -1,5 +1,4 @@
 import { IsInt, IsOptional } from 'class-validator';
-import { Type } from 'class-transformer';
 import { ApiPropertyOptional } from '@nestjs/swagger';
 /**
  * DTO for the GET users method.
@@ -15,6 +14,5 @@ export class GetUsersParamDto {
   })
   @IsOptional()
   @IsInt()
-  @Type(() => Number)
   id?: number;
 }
