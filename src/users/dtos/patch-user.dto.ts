@@ -3,7 +3,6 @@ import { IsInt, IsNotEmpty } from 'class-validator';
 import { CreateUserDto } from './create-user.dto';
 /**
  * DTO for updating an existing users.
- * .
  */
 export class PatchUserDto extends PartialType(CreateUserDto) {
   /**
@@ -11,7 +10,7 @@ export class PatchUserDto extends PartialType(CreateUserDto) {
    * Must be a number.
    */
   @ApiProperty({
-    description: 'The id of the post that needs to be updated',
+    description: 'The id of the user that needs to be updated',
   })
   @IsInt()
   @IsNotEmpty()

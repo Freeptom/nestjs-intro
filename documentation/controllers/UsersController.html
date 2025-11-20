@@ -153,6 +153,15 @@ Handles user related routes and delegates logic to the UsersService.</p>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier">Public</span>
+                                <a href="#createManyUsers" >createManyUsers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
                                 <a href="#createUsers" >createUsers</a>
                             </li>
                             <li>
@@ -192,8 +201,91 @@ Handles user related routes and delegates logic to the UsersService.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createManyUsers"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Public</span>
+                        <span ><b>createManyUsers</b></span>
+                        <a href="#createManyUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createManyUsers(createManyUsersDto: <a href="../classes/CreateManyUsersDto.html" target="_self">CreateManyUsersDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@ApiOperation({summary: &#x27;Creates multiple users&#x27;})<br />@ApiResponse({status: 200, description: &#x27;You get a 200 response if the users are created successfully&#x27;})<br />@Post(&#x27;create-many&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/users/users.controller.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p> Creates multiple users</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createManyUsersDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateManyUsersDto.html" target="_self" >CreateManyUsersDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="createUsers"></a>
                     <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
@@ -214,14 +306,14 @@ Handles user related routes and delegates logic to the UsersService.</p>
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@ApiOperation({summary: &#x27;Creates a new user&#x27;})<br />@ApiResponse({status: 201, description: &#x27;You get a 201 response if the user is created successfully&#x27;})<br />@Post()<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Creates a new user&#x27;})<br />@ApiResponse({status: 201, description: &#x27;You get a 201 response if the user is created successfully&#x27;})<br />@Post()<br />@Auth(AuthType.None)<br />@UseInterceptors(ClassSerializerInterceptor)<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="76"
-                                    class="link-to-prism">src/users/users.controller.ts:76</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/users/users.controller.ts:81</a></div>
                         </td>
                     </tr>
 
@@ -259,7 +351,7 @@ Handles user related routes and delegates logic to the UsersService.</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
                             <div class="io-description">
@@ -289,7 +381,7 @@ Handles user related routes and delegates logic to the UsersService.</p>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUsers(getUsersParamDto: <a href="../classes/GetUsersParamDto.html" target="_self">GetUsersParamDto</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>getUsers(userQuery: <a href="../classes/GetUsersDto.html" target="_self">GetUsersDto</a>, getUsersParamDto: <a href="../classes/GetUsersParamDto.html" target="_self">GetUsersParamDto</a>)</code>
                 </td>
             </tr>
 
@@ -303,8 +395,8 @@ Handles user related routes and delegates logic to the UsersService.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="57"
-                                    class="link-to-prism">src/users/users.controller.ts:57</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/users/users.controller.ts:62</a></div>
                         </td>
                     </tr>
 
@@ -327,33 +419,21 @@ Handles user related routes and delegates logic to the UsersService.</p>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                                <td>userQuery</td>
+                                            <td>
+                                                            <code><a href="../classes/GetUsersDto.html" target="_self" >GetUsersDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
                                                 <td>getUsersParamDto</td>
                                             <td>
                                                             <code><a href="../classes/GetUsersParamDto.html" target="_self" >GetUsersParamDto</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                                <td>limit</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                                <td>page</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                             </td>
 
                                             <td>
@@ -408,15 +488,16 @@ Handles user related routes and delegates logic to the UsersService.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="92"
-                                    class="link-to-prism">src/users/users.controller.ts:92</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/users/users.controller.ts:113</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p> Update an existing user</p>
+                        <div class="io-description"><p>-- TODO --
+ Updates an existing user</p>
 </div>
 
                             <div class="io-description">
@@ -428,6 +509,7 @@ Handles user related routes and delegates logic to the UsersService.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -442,6 +524,12 @@ Handles user related routes and delegates logic to the UsersService.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The user id</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -451,7 +539,8 @@ Handles user related routes and delegates logic to the UsersService.</p>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The patched user</p>
+
                             </div>
                 </td>
             </tr>
@@ -469,14 +558,18 @@ Handles user related routes and delegates logic to the UsersService.</p>
   Param,
   Query,
   Body,
-  ParseIntPipe,
-  DefaultValuePipe,
+  UseInterceptors,
+  ClassSerializerInterceptor,
 } from &#x27;@nestjs/common&#x27;;
 import { CreateUserDto } from &#x27;./dtos/create-user.dto&#x27;;
+import { CreateManyUsersDto } from &#x27;./dtos/create-many-users.dto&#x27;;
 import { GetUsersParamDto } from &#x27;./dtos/get-users-param.dto&#x27;;
 import { PatchUserDto } from &#x27;./dtos/patch-user.dto&#x27;;
 import { UsersService } from &#x27;./providers/users.service&#x27;;
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { GetUsersDto } from &#x27;./dtos/get-users.dto&#x27;;
+import { Auth } from &#x27;src/auth/decorators/auth.decorator&#x27;;
+import { AuthType } from &#x27;src/auth/enums/auth-type.enum&#x27;;
 /**
  * The users controller.
  * Handles user related routes and delegates logic to the UsersService.
@@ -486,11 +579,12 @@ import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from &#x27;@nestjs/swagg
 export class UsersController {
   constructor(
     /**
-     *  Injects the UsersService into the UsersController
+     * Creates an instance of the UsersController with required dependencies.
+     *
+     * @param usersService - The users service instance that handles user-related business logic and data operations
      */
     private readonly usersService: UsersService,
   ) {}
-
   /**
    *  Get all users or filter by userId via query param
    */
@@ -518,13 +612,11 @@ export class UsersController {
   })
   @Get(&#x27;{/:id}/&#x27;)
   public getUsers(
+    @Query() userQuery: GetUsersDto,
     @Param() getUsersParamDto: GetUsersParamDto,
-    @Query(&#x27;limit&#x27;, new DefaultValuePipe(10), ParseIntPipe) limit: number,
-    @Query(&#x27;page&#x27;, new DefaultValuePipe(1), ParseIntPipe) page: number,
   ) {
-    return this.usersService.findAll(getUsersParamDto, limit, page);
+    return this.usersService.findAll(userQuery, getUsersParamDto);
   }
-
   /**
    *  Create a new user
    */
@@ -536,13 +628,31 @@ export class UsersController {
     description: &#x27;You get a 201 response if the user is created successfully&#x27;,
   })
   @Post()
+  @Auth(AuthType.None)
+  @UseInterceptors(ClassSerializerInterceptor)
   public createUsers(@Body() createUserDto: CreateUserDto) {
-    console.log(createUserDto instanceof CreateUserDto);
-    return &#x27;You sent a post request to create a user&#x27;;
+    return this.usersService.createUser(createUserDto);
   }
-
   /**
-   *  Update an existing user
+   *  Creates multiple users
+   */
+  @ApiOperation({
+    summary: &#x27;Creates multiple users&#x27;,
+  })
+  @ApiResponse({
+    status: 200,
+    description: &#x27;You get a 200 response if the users are created successfully&#x27;,
+  })
+  @Post(&#x27;create-many&#x27;)
+  public createManyUsers(@Body() createManyUsersDto: CreateManyUsersDto) {
+    return this.usersService.createMany(createManyUsersDto);
+  }
+  /**
+   * -- TODO --
+   *  Updates an existing user
+   *
+   * @param patchUserDto - The user id
+   * @returns The patched user
    */
   @ApiOperation({
     summary: &#x27;Updates an existing user&#x27;,

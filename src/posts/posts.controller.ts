@@ -23,9 +23,14 @@ import { ActiveUserData } from 'src/auth/interfaces/active-user-data.interface';
 @Controller('posts')
 @ApiTags('Posts')
 export class PostsController {
+  /**
+   * Creates an instance of the PostsController with required dependencies.
+   *
+   * @param postsService - The posts service instance that handles posts-related business logic and data operations
+   */
   constructor(private readonly postsService: PostsService) {}
   /**
-   *  Get all posts or filter by userId via query param
+   *  Gets blog posts by user Id
    */
   @ApiOperation({
     summary: 'Fetches a list of blog posts, filtered by userId if provided',
@@ -42,7 +47,7 @@ export class PostsController {
     return this.postsService.findAll(postQuery, userId);
   }
   /**
-   *  Creates a post
+   *  Creates a new blog post
    */
   @ApiOperation({
     summary: 'Creates a new blog post',
@@ -58,7 +63,6 @@ export class PostsController {
   ) {
     return this.postsService.create(createPostDto, user);
   }
-
   /**
    *  Updates an existing blog post
    */
@@ -73,7 +77,6 @@ export class PostsController {
   public updatePost(@Body() patchPostDto: PatchPostDto) {
     return this.postsService.update(patchPostDto);
   }
-
   /**
    *  Deletes an existing blog post
    */

@@ -10,9 +10,26 @@ import { Repository } from 'typeorm';
 import { User } from '../user.entity';
 import { HashingProvider } from 'src/auth/providers/hashing.provider';
 import { InjectRepository } from '@nestjs/typeorm';
-
+import { MailService } from 'src/mail/providers/mail.service';
+/**
+ * Service provider for user creation operations.
+ *
+ * Handles the creation of user records in a single operation,
+ * including password hashing and database transaction management.
+ * Sends mail confirmation once the user has been created.
+ *
+ * @example
+ * const user = await this.usersService.createUser(createUserDto);
+ */
 @Injectable()
 export class CreateUserProvider {
+  /**
+   * Creates an instance of CreateUserProvider with required dependencies.
+   *
+   * @param usersRepository - Database connection for user operations
+   * @param hashingProvider - Service for password hashing and security operations
+   * @param mailService - Service for sending emails
+   */
   constructor(
     /**
      * Inject usersRepository
@@ -24,6 +41,10 @@ export class CreateUserProvider {
      */
     @Inject(forwardRef(() => HashingProvider))
     private readonly hashingProvider: HashingProvider,
+    /**
+     * Inject MailService
+     */
+    private readonly mailService: MailService,
   ) {}
   /**
    * The method to create a user
@@ -66,6 +87,11 @@ export class CreateUserProvider {
           description: 'Error connecting to the database',
         },
       );
+    }
+    try {
+      await this.mailService.sendUserWelcome(newUser);
+    } catch (error) {
+      throw new RequestTimeoutException(error);
     }
     return newUser;
   }

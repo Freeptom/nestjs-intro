@@ -1,6 +1,6 @@
 PATCH http://localhost:3000/users
 Content-Type: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImJydWNleUB3YXluZS5jb20iLCJpYXQiOjE3NTM3MDQ0NTYsImV4cCI6MTc1MzcwODA1NiwiYXVkIjoibG9jYWxob3N0OjMwMDAiLCJpc3MiOiJsb2NhbGhvc3Q6MzAwMCJ9.0uxI3oPVj8G2j4eJZxceOmNB92nwNHef4Fy8AIzgLlI
 {
     "email": "john@doe.com",
     "password": "Password1*"

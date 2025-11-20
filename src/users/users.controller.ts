@@ -6,6 +6,8 @@ import {
   Param,
   Query,
   Body,
+  UseInterceptors,
+  ClassSerializerInterceptor,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { CreateManyUsersDto } from './dtos/create-many-users.dto';
@@ -25,11 +27,12 @@ import { AuthType } from 'src/auth/enums/auth-type.enum';
 export class UsersController {
   constructor(
     /**
-     *  Injects the UsersService into the UsersController
+     * Creates an instance of the UsersController with required dependencies.
+     *
+     * @param usersService - The users service instance that handles user-related business logic and data operations
      */
     private readonly usersService: UsersService,
   ) {}
-
   /**
    *  Get all users or filter by userId via query param
    */
@@ -57,8 +60,8 @@ export class UsersController {
   })
   @Get('{/:id}/')
   public getUsers(
-    @Param() getUsersParamDto: GetUsersParamDto,
     @Query() userQuery: GetUsersDto,
+    @Param() getUsersParamDto: GetUsersParamDto,
   ) {
     return this.usersService.findAll(userQuery, getUsersParamDto);
   }
@@ -74,11 +77,12 @@ export class UsersController {
   })
   @Post()
   @Auth(AuthType.None)
+  @UseInterceptors(ClassSerializerInterceptor)
   public createUsers(@Body() createUserDto: CreateUserDto) {
     return this.usersService.createUser(createUserDto);
   }
   /**
-   *  Create multiple users
+   *  Creates multiple users
    */
   @ApiOperation({
     summary: 'Creates multiple users',
@@ -92,7 +96,11 @@ export class UsersController {
     return this.usersService.createMany(createManyUsersDto);
   }
   /**
-   *  Update an existing user
+   * -- TODO --
+   *  Updates an existing user
+   *
+   * @param patchUserDto - The user id
+   * @returns The patched user
    */
   @ApiOperation({
     summary: 'Updates an existing user',

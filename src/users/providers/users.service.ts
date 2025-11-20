@@ -17,6 +17,8 @@ import { Paginated } from 'src/common/pagination/interfaces/paginated.interface'
 import { GetUsersDto } from '../dtos/get-users.dto';
 import { FindOneUserByEmailProvider } from './find-one-user-by-email.provider';
 import { FindOneByGoogleIdProvider } from './find-one-by-google-id.provider';
+import { CreateGoogleUserProvider } from './create-google-user.provider';
+import { GoogleUser } from '../interfaces/google-user.interface';
 
 /**
  * Class to connect Users table and perform business operations
@@ -49,6 +51,10 @@ export class UsersService {
      * Injects findOneByGoogleIdProvider
      */
     private readonly findOneByGoogleIdProvider: FindOneByGoogleIdProvider,
+    /**
+     * Injects createGoogleUserProvider
+     */
+    private readonly createGoogleUserProvider: CreateGoogleUserProvider,
   ) {}
   /**
    * The method to get all the users from the database
@@ -116,5 +122,11 @@ export class UsersService {
    */
   public async findOneByGoogleId(googleId: string) {
     return await this.findOneByGoogleIdProvider.findOneByGoogleId(googleId);
+  }
+  /**
+   * Create a new google user
+   */
+  public async createGoogleUser(googleUser: GoogleUser) {
+    return await this.createGoogleUserProvider.createGoogleUser(googleUser);
   }
 }

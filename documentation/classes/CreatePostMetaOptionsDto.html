@@ -119,7 +119,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/posts/dtos/create-post-meta-options.dto.ts</code>
+            <code>src/meta-options/dtos/create-post-meta-options.dto.ts</code>
         </p>
 
 
@@ -150,11 +150,7 @@ Represents a key-value pair for post metadata.</p>
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                <a href="#key" >key</a>
-                            </li>
-                            <li>
-                                    <span class="modifier"></span>
-                                <a href="#value" >value</a>
+                                <a href="#metaValue" >metaValue</a>
                             </li>
                         </ul>
                     </td>
@@ -179,12 +175,12 @@ Represents a key-value pair for post metadata.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="key"></a>
+                    <a name="metaValue"></a>
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
-                        <span ><b>key</b></span>
-                        <a href="#key"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>metaValue</b></span>
+                        <a href="#metaValue"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -199,66 +195,16 @@ Represents a key-value pair for post metadata.</p>
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@IsNotEmpty()<br />
+                            @IsNotEmpty()<br />@IsJSON()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/posts/dtos/create-post-meta-options.dto.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/meta-options/dtos/create-post-meta-options.dto.ts:9</a></div>
                         </td>
                     </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Metadata key.
-Must be a non-empty string.</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="value"></a>
-                    <span class="name">
-                            <span class="modifier"></span>
-                        <span ><b>value</b></span>
-                        <a href="#value"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @IsNotEmpty()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/posts/dtos/create-post-meta-options.dto.ts:19</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Metadata value.
-Must be provided; type is flexible to allow different kinds of values.</p>
-</div>
-                </td>
-            </tr>
 
         </tbody>
     </table>
@@ -274,25 +220,15 @@ Must be provided; type is flexible to allow different kinds of values.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsNotEmpty, IsString } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsJSON, IsNotEmpty } from &#x27;class-validator&#x27;;
 /**
  * Data transfer object for creating post meta options.
  * Represents a key-value pair for post metadata.
  */
 export class CreatePostMetaOptionsDto {
-  /**
-   * Metadata key.
-   * Must be a non-empty string.
-   */
-  @IsString()
   @IsNotEmpty()
-  key: string;
-  /**
-   * Metadata value.
-   * Must be provided; type is flexible to allow different kinds of values.
-   */
-  @IsNotEmpty()
-  value: any;
+  @IsJSON()
+  metaValue: string;
 }
 </code></pre>
     </div>

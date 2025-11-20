@@ -160,6 +160,13 @@ Handles post related routes and delegates logic to the PostsService.</p>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier">Public</span>
+                                <a href="#deletePost" >deletePost</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
                                 <a href="#getPosts" >getPosts</a>
                             </li>
                             <li>
@@ -204,7 +211,7 @@ Handles post related routes and delegates logic to the PostsService.</p>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createPost(createPostDto: <a href="../classes/CreatePostDto.html" target="_self">CreatePostDto</a>)</code>
+                    <code>createPost(createPostDto: <a href="../classes/CreatePostDto.html" target="_self">CreatePostDto</a>, user: <a href="../interfaces/ActiveUserData.html" target="_self">ActiveUserData</a>)</code>
                 </td>
             </tr>
 
@@ -218,15 +225,15 @@ Handles post related routes and delegates logic to the PostsService.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="40"
-                                    class="link-to-prism">src/posts/posts.controller.ts:40</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/posts/posts.controller.ts:60</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p> Creates a post</p>
+                        <div class="io-description"><p> Creates a new blog post</p>
 </div>
 
                             <div class="io-description">
@@ -253,11 +260,104 @@ Handles post related routes and delegates logic to the PostsService.</p>
 
 
                                         </tr>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ActiveUserData.html" target="_self" >ActiveUserData</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deletePost"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Public</span>
+                        <span ><b>deletePost</b></span>
+                        <a href="#deletePost"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deletePost(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@ApiOperation({summary: &#x27;Deletes an existing blog post&#x27;})<br />@ApiResponse({status: 200, description: &#x27;You get a 200 response if your post is deleted successfully&#x27;})<br />@Delete()<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/posts/posts.controller.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p> Deletes an existing blog post</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
                             <div class="io-description">
@@ -285,7 +385,7 @@ Handles post related routes and delegates logic to the PostsService.</p>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPosts(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>getPosts(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, postQuery: <a href="../classes/GetPostsDto.html" target="_self">GetPostsDto</a>)</code>
                 </td>
             </tr>
 
@@ -299,15 +399,15 @@ Handles post related routes and delegates logic to the PostsService.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="25"
-                                    class="link-to-prism">src/posts/posts.controller.ts:25</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/posts/posts.controller.ts:43</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p> Get all posts or filter by userId via query param</p>
+                        <div class="io-description"><p> Gets blog posts by user Id</p>
 </div>
 
                             <div class="io-description">
@@ -326,6 +426,18 @@ Handles post related routes and delegates logic to the PostsService.</p>
                                                 <td>userId</td>
                                             <td>
                                                             <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>postQuery</td>
+                                            <td>
+                                                            <code><a href="../classes/GetPostsDto.html" target="_self" >GetPostsDto</a></code>
                                             </td>
 
                                             <td>
@@ -366,7 +478,7 @@ Handles post related routes and delegates logic to the PostsService.</p>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updatePost(patchPostsDto: <a href="../classes/PatchPostDto.html" target="_self">PatchPostDto</a>)</code>
+                    <code>updatePost(patchPostDto: <a href="../classes/PatchPostDto.html" target="_self">PatchPostDto</a>)</code>
                 </td>
             </tr>
 
@@ -380,8 +492,8 @@ Handles post related routes and delegates logic to the PostsService.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="56"
-                                    class="link-to-prism">src/posts/posts.controller.ts:56</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">src/posts/posts.controller.ts:77</a></div>
                         </td>
                     </tr>
 
@@ -404,7 +516,7 @@ Handles post related routes and delegates logic to the PostsService.</p>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>patchPostsDto</td>
+                                                <td>patchPostDto</td>
                                             <td>
                                                             <code><a href="../classes/PatchPostDto.html" target="_self" >PatchPostDto</a></code>
                                             </td>
@@ -419,7 +531,7 @@ Handles post related routes and delegates logic to the PostsService.</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
                             <div class="io-description">
@@ -433,11 +545,24 @@ Handles post related routes and delegates logic to the PostsService.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Param, Post, Patch, Body } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Controller,
+  Get,
+  Param,
+  Post,
+  Patch,
+  Body,
+  Query,
+  ParseIntPipe,
+  Delete,
+} from &#x27;@nestjs/common&#x27;;
 import { PostsService } from &#x27;./providers/posts.service&#x27;;
 import { ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { CreatePostDto } from &#x27;./dtos/create-post.dto&#x27;;
 import { PatchPostDto } from &#x27;./dtos/patch-post.dto&#x27;;
+import { GetPostsDto } from &#x27;./dtos/get-posts.dto&#x27;;
+import { ActiveUser } from &#x27;src/auth/decorators/active-user.decorator&#x27;;
+import { ActiveUserData } from &#x27;src/auth/interfaces/active-user-data.interface&#x27;;
 /**
  * The posts application controller.
  * Handles post related routes and delegates logic to the PostsService.
@@ -445,9 +570,14 @@ import { PatchPostDto } from &#x27;./dtos/patch-post.dto&#x27;;
 @Controller(&#x27;posts&#x27;)
 @ApiTags(&#x27;Posts&#x27;)
 export class PostsController {
+  /**
+   * Creates an instance of the PostsController with required dependencies.
+   *
+   * @param postsService - The posts service instance that handles posts-related business logic and data operations
+   */
   constructor(private readonly postsService: PostsService) {}
   /**
-   *  Get all posts or filter by userId via query param
+   *  Gets blog posts by user Id
    */
   @ApiOperation({
     summary: &#x27;Fetches a list of blog posts, filtered by userId if provided&#x27;,
@@ -457,12 +587,14 @@ export class PostsController {
     description: &#x27;Posts fetched successfully, based on the query&#x27;,
   })
   @Get(&#x27;{/:userId}/&#x27;)
-  public getPosts(@Param(&#x27;userId&#x27;) userId: string) {
-    return this.postsService.findAll(userId);
+  public getPosts(
+    @Param(&#x27;userId&#x27;) userId: string,
+    @Query() postQuery: GetPostsDto,
+  ) {
+    return this.postsService.findAll(postQuery, userId);
   }
-
   /**
-   *  Creates a post
+   *  Creates a new blog post
    */
   @ApiOperation({
     summary: &#x27;Creates a new blog post&#x27;,
@@ -472,11 +604,12 @@ export class PostsController {
     description: &#x27;You get a 201 response if your post is created successfully&#x27;,
   })
   @Post()
-  public createPost(@Body() createPostDto: CreatePostDto) {
-    console.log(createPostDto);
-    return &#x27;You sent a post request to create a post&#x27;;
+  public createPost(
+    @Body() createPostDto: CreatePostDto,
+    @ActiveUser() user: ActiveUserData,
+  ) {
+    return this.postsService.create(createPostDto, user);
   }
-
   /**
    *  Updates an existing blog post
    */
@@ -488,9 +621,22 @@ export class PostsController {
     description: &#x27;You get a 200 response if your post is updated successfully&#x27;,
   })
   @Patch()
-  public updatePost(@Body() patchPostsDto: PatchPostDto) {
-    console.log(patchPostsDto);
-    return &#x27;You sent a patch request to update a post&#x27;;
+  public updatePost(@Body() patchPostDto: PatchPostDto) {
+    return this.postsService.update(patchPostDto);
+  }
+  /**
+   *  Deletes an existing blog post
+   */
+  @ApiOperation({
+    summary: &#x27;Deletes an existing blog post&#x27;,
+  })
+  @ApiResponse({
+    status: 200,
+    description: &#x27;You get a 200 response if your post is deleted successfully&#x27;,
+  })
+  @Delete()
+  public deletePost(@Query(&#x27;id&#x27;, ParseIntPipe) id: number) {
+    return this.postsService.delete(id);
   }
 }
 </code></pre>

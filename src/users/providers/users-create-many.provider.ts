@@ -9,9 +9,23 @@ import { User } from '../user.entity';
 import { DataSource } from 'typeorm';
 import { CreateManyUsersDto } from '../dtos/create-many-users.dto';
 import { HashingProvider } from 'src/auth/providers/hashing.provider';
-
+/**
+ * Service provider for bulk user creation operations.
+ *
+ * Handles the creation of multiple user records in a single operation,
+ * including password hashing and database transaction management.
+ *
+ * @example
+ * const users = this.usersService.createMany(createManyUsersDto);
+ */
 @Injectable()
 export class UsersCreateManyProvider {
+  /**
+   * Creates an instance of UsersCreateManyProvider with required dependencies.
+   *
+   * @param dataSource - Database connection for user operations
+   * @param hashingProvider - Service for password hashing and security operations
+   */
   constructor(
     /**
      * Inject datasource
@@ -23,7 +37,16 @@ export class UsersCreateManyProvider {
     @Inject(forwardRef(() => HashingProvider))
     private readonly hashingProvider: HashingProvider,
   ) {}
-  public async createMany(createManyUsersDto: CreateManyUsersDto) {
+  /**
+   * Creates multiple users in a single database transaction.
+   *
+   * @param createManyUsersDto - Array of user data to create
+   * @returns Array of created user entities
+   * @throws Error if validation fails or database operation fails
+   */
+  public async createMany(
+    createManyUsersDto: CreateManyUsersDto,
+  ): Promise<User[]> {
     const newUsers: User[] = [];
     // Create query runner instance
     const queryRunner = this.dataSource.createQueryRunner();
