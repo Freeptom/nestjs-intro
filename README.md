@@ -57,6 +57,12 @@ $ yarn run test:e2e
 $ yarn run test:cov
 ```
 
+## Accessing AWS instance
+
+```
+ssh -i <PROJECT pem> ubuntu@<AWS INSTANCE>
+```
+
 ## API information & comment coverage
 
 API: http://localhost:3000/api#/
